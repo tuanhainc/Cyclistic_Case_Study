@@ -68,13 +68,13 @@ Duration is a new field added by subtracting the started time and the ended time
 Distance is measured in meters, and is the length from the start station to the end station. This was calculated based on the coordinates of the start and end stations. Although this measurement does not truly reflect the actual distance traveled by a rider, it could be useful in investigating customers’ behavior by looking at its relationship with travel duration.
 
 ## Summary
-***  -	Rows having duplicate trip IDs were removed.
+  -	Rows having duplicate trip IDs were removed.
   -	Rows with no end destination were removed.
   -	Rows where “started_at” is greater than “ended_at” were removed.
   -	A total of 240,533 rows were removed during the cleaning process.
   -	Year, month, day, weekday, and hour components were added derived from “started_at” and “ended_at”
   -	Trip duration field was added.
-  -	Distance between start and end stations was added. ***
+  -	Distance between start and end stations was added.
 
 # Analyze
 Tools used in this section are SQL in combination with Tableau for data analysis and visualization.
