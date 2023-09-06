@@ -1,0 +1,76 @@
+WITH trip_data_cleaned AS   -- creating a cleaned dataset
+(
+  SELECT -- creating a dataset that excludes IDs with no end destination
+  *
+FROM
+  (
+  SELECT  -- combined_trip_data with no duplicated ride_id
+    *
+  FROM
+    bikes-395309.bikes_data.combined_trip_data
+  WHERE ride_id
+    NOT IN     -- Only pick ride_id that is not duplicated
+      (
+      SELECT     
+        ride_id
+      FROM
+        (
+        SELECT  -- Create a table of ride_id with more than one appearance
+          *
+        FROM
+          (
+          SELECT  -- Create a table of ride_id and their count
+          ride_id,
+          COUNT(ride_id) AS number_of_rows_with_the_same_ride_id
+          FROM
+          bikes-395309.bikes_data.combined_trip_data
+          GROUP BY
+          ride_id
+          ) AS data
+        WHERE
+          data.number_of_rows_with_the_same_ride_id != 1
+        )
+      )
+  )
+WHERE ride_id
+  NOT IN
+  (
+  SELECT  -- creating a dataset of IDs with no end destination
+    ride_id
+  FROM
+    bikes-395309.bikes_data.combined_trip_data
+  WHERE 
+  end_lat IS NULL AND
+  end_lng IS NULL AND
+  end_station_name = "" AND
+  end_station_id = ""
+  )
+)
+
+SELECT  -- Adding fields for analysis
+  rideable_type,
+  FORMAT_DATE('%Y', DATE(started_at)) AS start_year,
+  FORMAT_DATE('%A', DATE(started_at)) AS start_weekday,
+  FORMAT_DATE('%B', DATE(started_at)) AS start_month,
+  FORMAT_DATE('%d', DATE(started_at)) AS start_day,
+  SUBSTR(CAST(started_at AS STRING),12,2) AS start_hour,
+  FORMAT_DATE('%Y', DATE(ended_at)) AS end_year,
+  FORMAT_DATE('%A', DATE(ended_at)) AS end_weekday,
+  FORMAT_DATE('%B', DATE(ended_at)) AS end_month,
+  FORMAT_DATE('%d', DATE(ended_at)) AS end_day,
+  SUBSTR(CAST(ended_at AS STRING),12,2) AS end_hour,
+  DATE_DIFF(ended_at,started_at, MINUTE) AS trip_duration_minute,
+  start_lat,
+  start_lng,
+  end_lat,
+  end_lng,
+  ROUND(ST_DISTANCE(ST_GEOGPOINT(start_lng, start_lat), ST_GEOGPOINT(end_lng, end_lat)),0) AS distance_in_meters,
+  member_casual AS customer_type,
+FROM
+  trip_data_cleaned
+
+  end_lng,
+  ROUND(ST_DISTANCE(ST_GEOGPOINT(start_lng, start_lat), ST_GEOGPOINT(end_lng, end_lat)),0) AS distance_in_meters,
+  member_casual AS customer_type,
+FROM
+  trip_data_cleaned
