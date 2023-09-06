@@ -59,5 +59,27 @@ With the ride_id variable having only unique values, any duplication of ride_id 
 | end_lng            | FLOAT      | NULLABLE  |
 | member_casual      | STRING     | REQUIRED  |
 
+Total records of 240,533 rows were removed during this process. It is worth noting that I decided not to remove every row with missing values in the field of station name, ID, and altitude.
+
+## Data process
+In this section, the data is further processed to add new fields for analysis. I dissected the 'started_at' and 'ended_at' fields and broke them down into year, month, day, weekday, and hour components. This segmentation serves the purpose of facilitating a more convenient analysis of rider behaviors across various timeframes.
+Regarding location, it is trickier to make use of station information given the mismatch across the names, IDs, and altitude values. However, there is no null value for the altitude variables after removing trips with no end destination (rows with null values for all four variables: name, ID, and altitude values). Therefore, I only focused on the latitude and longitude variables moving forward. These variables would be rounded up to three decimal places for the sake of consistency, and processing time reduction while still adequately reflecting station locations (the accuracy of 3 decimal places is 111 meters).
+Duration is a new field added by subtracting the started time and the ended time. Duration is expressed in minutes and is the time interval of a single trip. Rows with negative or zero value duration, which does not make sense, were removed.
+Distance is measured in meters, and is the length from the start station to the end station. This was calculated based on the coordinates of the start and end stations. Although this measurement does not truly reflect the actual distance traveled by a rider, it could be useful in investigating customers’ behavior by looking at its relationship with travel duration.
+
+## Summary
+  -	Rows having duplicate trip IDs were removed.
+  -	Rows with no end destination were removed.
+  -	Rows where “started_at” is greater than “ended_at” were removed.
+  -	A total of 240,533 rows were removed during the cleaning process.
+  -	Year, month, day, weekday, and hour components were added derived from “started_at” and “ended_at”
+  -	Trip duration field was added.
+  -	Distance between start and end stations was added.
+
+# Analyze
+Tools used in this section are SQL in combination with Tableau for data analysis and visualization.
+
+## Trip duration
+SQL Query:
 
 
