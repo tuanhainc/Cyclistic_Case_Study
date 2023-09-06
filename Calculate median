@@ -1,0 +1,10 @@
+SELECT
+  customer_type,
+  rideable_type,
+  APPROX_QUANTILES(trip_duration_minute, 1000)[SAFE_OFFSET(500)] AS median_trip_duration,
+  ROUND(AVG(trip_duration_minute),0) AS mean_trip_duration
+FROM
+  bikes-395309.bikes_data.visualization_3
+GROUP BY
+  customer_type,
+  rideable_type
