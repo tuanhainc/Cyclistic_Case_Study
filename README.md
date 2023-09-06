@@ -33,13 +33,31 @@ Note that there were many incomplete fields, data missing most often from statio
 ## Merging data
 After making sure every file contains a consistent number of fields, I proceeded to merge all the files into one aggregated file for cleaning and analysis. I aggregated the 36 CSV files into one consistent table using Power Query and exported them in a large CSV format file by the external tool Dax Studio. The CSV file was later imported into Google Cloud Storage and uploaded to SQL BigQuery. The total number of records for the aggregated data is 12,159,101 rows.
 ## Summary
-  **-	36 CSV files, representing historical trip data from April 2020 through June 2023 were collected and merged. The aggregated data has a total of 12,159,101 rows.**
-  **-	Data preview revealed many empty rows, and missing data from station name, ID, and latitude variables.**
-  **-	Data was trimmed during the merging process to eliminate extra spaces.**
+**  -	36 CSV files, representing historical trip data from April 2020 through June 2023 were collected and merged. The aggregated data has a total of 12,159,101 rows.
+  -	Data preview revealed many empty rows, and missing data from station name, ID, and latitude variables.
+  -	Data was trimmed during the merging process to eliminate extra spaces.**
 
 # Process
 SQL Query: 
 ## Data cleaning
 This section inspects data potential faulty format, typos, missing values, and duplication. The cleaning strategy includes removing unnecessary values, duplication, and anomalies, using clear format, and converting fields into appropriate data types.
 With the ride_id variable having only unique values, any duplication of ride_id would be removed. Trips with no end destination, in this case, having no station altitude, name, and ID that is impossible to retrieve using the remaining information, would also be removed. The schema for cleaned data trip data would be as below:
+
+| Field Name         | Data Type  | Mode      |
+|--------------------|------------|-----------|
+| ride_id            | STRING     | REQUIRED  |
+| rideable_type      | STRING     | REQUIRED  |
+| started_at         | TIMESTAMP  | REQUIRED  |
+| ended_at           | TIMESTAMP  | REQUIRED  |
+| start_station_name | STRING     | NULLABLE  |
+| start_station_id   | STRING     | NULLABLE  |
+| end_station_name   | STRING     | NULLABLE  |
+| end_station_id     | STRING     | NULLABLE  |
+| start_lat          | FLOAT      | NULLABLE  |
+| start_lng          | FLOAT      | NULLABLE  |
+| end_lat            | FLOAT      | NULLABLE  |
+| end_lng            | FLOAT      | NULLABLE  |
+| member_casual      | STRING     | REQUIRED  |
+
+
 
