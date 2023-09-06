@@ -38,7 +38,7 @@ After making sure every file contains a consistent number of fields, I proceeded
   -	Data was trimmed during the merging process to eliminate extra spaces.
 
 # Process
-SQL Query: [SQL Query - Data Cleaning and Processing](url)
+SQL Query: [Data Cleaning and Processing](https://github.com/tuanhainc/Cyclistic/blob/main/SQL%20Query%20-%20Data%20Cleaning%20and%20Processing)
 ## Data cleaning
 This section inspects data potential faulty format, typos, missing values, and duplication. The cleaning strategy includes removing unnecessary values, duplication, and anomalies, using clear format, and converting fields into appropriate data types.
 With the ride_id variable having only unique values, any duplication of ride_id would be removed. Trips with no end destination, in this case, having no station altitude, name, and ID that is impossible to retrieve using the remaining information, would also be removed. The schema for cleaned data trip data would be as below:
