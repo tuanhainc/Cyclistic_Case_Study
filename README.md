@@ -80,9 +80,9 @@ Distance is measured in meters, and is the length from the start station to the 
 Tools used in this section are SQL in combination with Tableau for data analysis and visualization.
 
 ## Trip duration
-SQL Query:
-  [Mean Trip Duration](https://github.com/tuanhainc/Cyclistic/blob/main/SQL%20Query%20-%20Calculate%20Median)
-  [Ride Count Percentage in Different Duration Length](https://github.com/tuanhainc/Cyclistic/blob/main/SQL%20Query%20-%20Ride%20Count%20Percentage%20per%20Trip%20Duration%20Length)
+SQL Query:   
+[Mean Trip Duration](https://github.com/tuanhainc/Cyclistic/blob/main/SQL%20Query%20-%20Calculate%20Median)   
+[Ride Count Percentage in Different Duration Length](https://github.com/tuanhainc/Cyclistic/blob/main/SQL%20Query%20-%20Ride%20Count%20Percentage%20per%20Trip%20Duration%20Length)
 
 
 
