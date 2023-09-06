@@ -1,0 +1,61 @@
+WITH ride_count_per_duration AS 
+  (
+  SELECT
+    COUNT(trip_duration_minute) AS count_of_ride,
+    customer_type,
+    CASE
+      WHEN trip_duration_minute < 0
+      THEN "no"
+      WHEN trip_duration_minute <= 30 AND trip_duration_minute >= 0
+      THEN "30 min trip"
+      WHEN trip_duration_minute > 30 AND trip_duration_minute <= 60
+      THEN "30 to 60 min trip"
+    ELSE "more than 60 min trip"
+    END AS duration_length
+  FROM
+    bikes-395309.bikes_data.visualization_3
+  GROUP BY
+    duration_length,
+    customer_type
+  HAVING 
+    duration_length != "no"
+  )
+
+SELECT
+  customer_type,
+  duration_length,
+  count_of_ride,
+  total_ride_per_customer_type,
+  count_of_ride / total_ride_per_customer_type AS percentage_of_ride
+FROM
+  (
+  SELECT
+    customer_type,
+    duration_length,
+    count_of_ride,
+    (SELECT
+      CASE
+        WHEN customer_type = "casual"
+        THEN 
+          (SELECT
+            COUNT(*)
+          FROM
+            bikes-395309.bikes_data.visualization_3
+          WHERE
+            customer_type = "casual" AND
+            trip_duration_minute > 0
+          )
+        ELSE
+          (SELECT
+            COUNT(*)
+          FROM
+            bikes-395309.bikes_data.visualization_3
+          WHERE
+            customer_type = "member" AND
+            trip_duration_minute > 0
+          )
+        END AS total_ride
+    ) AS total_ride_per_customer_type
+  FROM
+    ride_count_per_duration
+  )
