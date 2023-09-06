@@ -84,7 +84,7 @@ SQL Query:
 [Mean Trip Duration](https://github.com/tuanhainc/Cyclistic/blob/main/SQL%20Query%20-%20Calculate%20Median)  
 [Ride Count Percentage in Different Duration Length](https://github.com/tuanhainc/Cyclistic/blob/main/SQL%20Query%20-%20Ride%20Count%20Percentage%20per%20Trip%20Duration%20Length)
 
-![image](https://drive.google.com/file/d/1_djY3hbP4muS1-nkTpLwTfVwBwX7n3i3/view?usp=drive_link)
+![image](https://github.com/tuanhainc/Images/blob/9d434b7cc319aff4088e12425f0606e558c65131/mean_trip_duration.png)
 
 Significantly, the mean trip duration for casual riders is much higher than for member riders, especially for docked bikes. A considerable gap between the mean and median means duration of casual trips is more scattered with more extreme values. Yet, it is safe to say that casual riders tend to have longer ride trips.
 
