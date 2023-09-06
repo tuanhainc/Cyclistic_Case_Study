@@ -88,3 +88,8 @@ SQL Query:
 
 Significantly, the mean trip duration for casual riders is much higher than for member riders, especially for docked bikes. A considerable gap between the mean and median means duration of casual trips is more scattered with more extreme values. Yet, it is safe to say that casual riders tend to have longer ride trips.
 
+![image](https://github.com/tuanhainc/Images/blob/main/percentage_of_ride.png)
+
+The reason for the much higher mean trip duration of casual riders could be explained by more-than-30-minute trips accounting for nearly 25% of total casual rides. Generally, member riders tend to prefer short-length trips.
+
+![image](https://github.com/tuanhainc/Images/blob/main/trip_duration.png)
