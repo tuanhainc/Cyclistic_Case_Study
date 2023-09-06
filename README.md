@@ -33,9 +33,9 @@ Note that there were many incomplete fields, data missing most often from statio
 ## Merging data
 After making sure every file contains a consistent number of fields, I proceeded to merge all the files into one aggregated file for cleaning and analysis. I aggregated the 36 CSV files into one consistent table using Power Query and exported them in a large CSV format file by the external tool Dax Studio. The CSV file was later imported into Google Cloud Storage and uploaded to SQL BigQuery. The total number of records for the aggregated data is 12,159,101 rows.
 ## Summary
-**  -	36 CSV files, representing historical trip data from April 2020 through June 2023 were collected and merged. The aggregated data has a total of 12,159,101 rows.
+  -	36 CSV files, representing historical trip data from April 2020 through June 2023 were collected and merged. The aggregated data has a total of 12,159,101 rows.
   -	Data preview revealed many empty rows, and missing data from station name, ID, and latitude variables.
-  -	Data was trimmed during the merging process to eliminate extra spaces.**
+  -	Data was trimmed during the merging process to eliminate extra spaces.
 
 # Process
 SQL Query: 
