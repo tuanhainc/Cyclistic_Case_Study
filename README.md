@@ -30,3 +30,16 @@ There are 38 CSV files from Cyclistic’s trip data ranging between April 2020 t
 
 Note that there were many incomplete fields, data missing most often from station name, ID, and latitude variables, as well as many fields that were likely invalid. This section, however, remains only a quick preview of the data. Further data cleaning is discussed in the next section.
 
+## Merging data
+After making sure every file contains a consistent number of fields, I proceeded to merge all the files into one aggregated file for cleaning and analysis. I aggregated the 36 CSV files into one consistent table using Power Query and exported them in a large CSV format file by the external tool Dax Studio. The CSV file was later imported into Google Cloud Storage and uploaded to SQL BigQuery. The total number of records for the aggregated data is 12,159,101 rows.
+## Summary
+  **-	36 CSV files, representing historical trip data from April 2020 through June 2023 were collected and merged. The aggregated data has a total of 12,159,101 rows.
+  -	Data preview revealed many empty rows, and missing data from station name, ID, and latitude variables.
+  -	Data was trimmed during the merging process to eliminate extra spaces.**
+  -	
+# Process
+SQL Query: 
+## Data cleaning
+This section inspects data potential faulty format, typos, missing values, and duplication. The cleaning strategy includes removing unnecessary values, duplication, and anomalies, using clear format, and converting fields into appropriate data types.
+With the ride_id variable having only unique values, any duplication of ride_id would be removed. Trips with no end destination, in this case, having no station altitude, name, and ID that is impossible to retrieve using the remaining information, would also be removed. The schema for cleaned data trip data would be as below:
+
