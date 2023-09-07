@@ -1,0 +1,28 @@
+WITH return_trip_table AS
+  (
+  SELECT
+  *
+  FROM
+    bikes-395309.bikes_data.trip_data_cleaned
+  WHERE
+    distance_in_meters = 0
+  )
+
+SELECT
+  customer_type,
+  ride_count / CAST(total_ride_count AS INT64) AS percentage_return_trip
+FROM
+  (
+  SELECT
+    customer_type,
+    COUNT(*) AS ride_count,
+    CASE
+      WHEN customer_type = "casual"
+      THEN "7169505" -- total casual ride count
+      ELSE "4736021" -- total member ride count
+    END AS total_ride_count,
+  FROM
+    return_trip_table
+  GROUP BY
+    customer_type
+  )
