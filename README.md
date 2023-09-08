@@ -1,3 +1,6 @@
+# Purpose
+This notebook serves as a comprehensive record of the analytical journey undertaken with the Cyclistic dataset, comprising a substantial 12,159,101 rows. Within this document, I provide a detailed showcase of my thought process and different tools employed to navigate the challenges posed by large-scale data. The document outlines each step, encompassing data cleaning, processing, in-depth analysis, and the creation of insightful visualizations.
+
 # Background
 ## About the company
 In 2016, Cyclistic launched a successful bike-share offering. Since then, the program has grown to a fleet of 5,824 bicycles that are geotracked and locked into a network of 692 stations across Chicago. The bikes can be unlocked from one station and returned to any other station in the system anytime.  
