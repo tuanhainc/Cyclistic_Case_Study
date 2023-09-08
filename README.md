@@ -128,10 +128,10 @@ Another intriguing anomaly in the scatter plot is the vertical wall of plots for
 Zero-meter distance indicates that the riders returned to where they started at the end of the trip. A higher percentage of such return trips for casual customers could be attributed to their unfamiliarity with various bike return locations. However, the difference is insignificant and is not worth extra examination.
 
 ## Key insights
-  -	**Trip duration: **Casual riders tend to opt for longer trips more compared to their member counterparts. Trips that are more than 1 day in duration are mostly from casual customers. 
-  -	**Morning Commute Patterns: **Most riders who use Cyclistic for their daily work commutes are member riders.
-  -	**Rideable type: **Casual riders have a stronger preference for electric bikes. Most docked bike users are casual customers.
-  -	**Weekday vs. Weekend: **Members tend to favor weekdays for their rides, while casual customers have a stronger preference for weekend rides.
+  -	Trip duration: Casual riders tend to opt for longer trips more compared to their member counterparts. Trips that are more than 1 day in duration are mostly from casual customers. 
+  -	Morning Commute Patterns: Most riders who use Cyclistic for their daily work commutes are member riders.
+  -	Rideable type: Casual riders have a stronger preference for electric bikes. Most docked bike users are casual customers.
+  -	Weekday vs. Weekend: Members tend to favor weekdays for their rides, while casual customers have a stronger preference for weekend rides.
 
 # Recommendation
 To further answer the question of **“Why would casual riders buy Cyclistic annual memberships?”** necessitates extra output. For example, unique rider ID information is crucial to understanding the correlation and causation relationship between two customer types. From that, a strategic digital media campaign to influence casual riders to become members can be proposed.
