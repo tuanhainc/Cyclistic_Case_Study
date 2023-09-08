@@ -93,3 +93,48 @@ Significantly, the mean trip duration for casual riders is much higher than for 
 The reason for the much higher mean trip duration of casual riders could be explained by more-than-30-minute trips accounting for nearly 25% of total casual rides. Generally, member riders tend to prefer short-length trips.
 
 ![image](https://github.com/tuanhainc/Images/blob/main/trip_duration.png)
+
+Since the majority of trips in our dataset are completed in under 60 minutes, I have chosen to narrow my analysis to records with durations of less than 110 minutes, as indicated in the graph above. When examining trip durations by bike type, it becomes evident that casual customers exhibit a pronounced preference for electric bikes, particularly for trips under 30 minutes.
+
+## Seasonality
+![image](https://github.com/tuanhainc/Images/blob/main/Commuting.png)
+
+For members, spikes in total rides occur between 6-8 AM. Suggesting a significant number of riders commuting to work using Cyclistic membership.
+
+![image](https://github.com/tuanhainc/Images/blob/main/Commuting2.png)
+
+The previous presumption can be proved by checking the ride count distribution only on the weekends. The behaviors in the two groups remain remarkably similar.
+
+## Attitude and distance
+![image](https://github.com/tuanhainc/Images/blob/main/Attitude.png)
+
+To see any relationship with locations, I plugged in the altitude variables of start stations. The concentration of starting points was distributed heavily along the coastline for member type. The same happened for casual customer counterparts but is slightly more scattered inland.  Generally, there is not much to say about the differences in locations between the two customer types here.
+
+![image](https://github.com/tuanhainc/Images/blob/main/Attitude2.png)
+
+However, a closer look at the data on weekends and weekdays reveals an interesting pattern. Member rides are denser on weekends, while casual rides follow the opposite trend. It is not yet to assume anything since the visualization uses the count of rides of two customer types proportionally with the total ride count of the whole data set.
+
+![image](https://github.com/tuanhainc/Images/blob/main/Weekendandweekday.png)
+
+To understand the usage in a more appropriately proportional manner, I used the percentage of ride count per weekday compared to the total count for a particular customer type. This reveals a surge in casual riders during weekends, indicating a preference for weekend rides, while members tend to favor weekday rides.
+
+![image](https://github.com/tuanhainc/Images/blob/main/scatterplot.png)
+
+The relationship between ride duration and distance does not appear to follow a linear regression pattern, likely because the meter variable represents the distance between start and end stations, which may not always align with the actual distance traveled. Interestingly, it seems there is a ceiling in the scatter plot at trips with around 1500-minute (24-hour) duration. Above the ceiling, presented only casual rides with docked bike type. In other words, casual riders are the ones renting bikes for trips lasting more than a day, and they exclusively choose docked bikes for such journeys.  
+Another intriguing anomaly in the scatter plot is the vertical wall of plots for both customer types at zero-meter distance. I would calculate the percentage of ride count at zero distance compared to the total ride count of each customer type.
+
+![image](https://github.com/tuanhainc/Images/blob/main/percentagereturntrips.png)
+
+Zero-meter distance indicates that the riders returned to where they started at the end of the trip. A higher percentage of such return trips for casual customers could be attributed to their unfamiliarity with various bike return locations. However, the difference is insignificant and is not worth extra examination.
+
+## Key insights
+  -	**Trip duration:** Casual riders tend to opt for longer trips more compared to their member counterparts. Trips that are more than 1 day in duration are mostly from casual customers. 
+  -	**Morning Commute Patterns:** Most riders who use Cyclistic for their daily work commutes are member riders.
+  -	**Rideable type: **Casual riders have a stronger preference for electric bikes. Most docked bike users are casual customers.
+  -	**Weekday vs. Weekend: **Members tend to favor weekdays for their rides, while casual customers have a stronger preference for weekend rides.
+
+# Recommendation
+To further answer the question of **“Why would casual riders buy Cyclistic annual memberships?”** necessitates extra output. For example, unique rider ID information is crucial to understanding the correlation and causation relationship between two customer types. From that, a strategic digital media campaign to influence casual riders to become members can be proposed.
+
+
+
