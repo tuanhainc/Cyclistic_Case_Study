@@ -106,6 +106,8 @@ For members, spikes in total rides occur between 6-8 AM. Suggesting a significan
 The previous presumption can be proved by checking the ride count distribution only on the weekends. The behaviors in the two groups remain remarkably similar.
 
 ## Attitude and distance
+SQL Query: [Percentage on returning trips](https://github.com/tuanhainc/Cyclistic/blob/main/Percentage%20return%20trips)
+
 ![image](https://github.com/tuanhainc/Images/blob/main/Attitude.png)
 
 To see any relationship with locations, I plugged in the altitude variables of start stations. The concentration of starting points was distributed heavily along the coastline for member type. The same happened for casual customer counterparts but is slightly more scattered inland.  Generally, there is not much to say about the differences in locations between the two customer types here.
